@@ -27,5 +27,7 @@ COPY --from=build-env /app/api app/api
 ## Expose used ports
 EXPOSE 8080 8443
 
+ENV LOG Verbose
+
 ## Start the application on boot up
 CMD [ "/app/api" ]

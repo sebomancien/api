@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import "github.com/sebomancien/api/logger"
 
 func main() {
-	fmt.Println("Hello World!")
+	server := NewAPIServer(":8080")
+
+	err := server.Start()
+	if err != nil {
+		logger.LogError(err)
+	}
 }
