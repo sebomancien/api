@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/sebomancien/api/logger"
+	"github.com/sebomancien/api/middleware"
 )
 
 type APIServer struct {
@@ -20,9 +21,9 @@ func NewAPIServer(addr string) *APIServer {
 func (s APIServer) Start() error {
 	router := http.NewServeMux()
 
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	router.Handle("/", middleware.Log(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello World!")
-	})
+	}))
 
 	logger.LogInfo("API server started at ", s.addr)
 
