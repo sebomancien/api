@@ -35,5 +35,5 @@ ENV LOG Verbose
 ## Start the application on boot up
 CMD [ "/app/api" ]
 
-HEALTHCHECK --interval=5s --timeout=5s \
+HEALTHCHECK --timeout=5s \
   CMD curl -f http://localhost:8080/ || exit 1

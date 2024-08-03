@@ -6,15 +6,18 @@ import (
 
 	"github.com/sebomancien/api/logger"
 	"github.com/sebomancien/api/middleware"
+	"github.com/sebomancien/api/storage"
 )
 
 type APIServer struct {
-	addr string
+	addr  string
+	store storage.Store
 }
 
-func NewAPIServer(addr string) *APIServer {
+func NewAPIServer(addr string, store *storage.Store) *APIServer {
 	return &APIServer{
-		addr: addr,
+		addr:  addr,
+		store: store,
 	}
 }
 
